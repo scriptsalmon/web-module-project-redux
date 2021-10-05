@@ -7,7 +7,7 @@ import MovieFooter from './MovieFooter';
 const MovieList = (props)=> {
     const { movies } = props;
     // const movies = [];
-    console.log("MovieList-props: ", props)
+    // console.log("MovieList-props: ", props)
 
     return (
         <div className="col">
@@ -35,7 +35,7 @@ const MovieList = (props)=> {
 }
 
 const mapStateToProps = (state) => {
-    console.log("MovieList-mapState: ", state);
+    // console.log("MovieList-mapState: ", state);
     return({
         movies: state.movies
     })
