@@ -13,7 +13,7 @@ import FavoriteMovieList from './components/FavoriteMovieList';
 
 const App = props => {
   const displayFavorites = true;
-
+  console.log("App: ", props);
   return (
     <div>
       <nav className="navbar navbar-dark bg-dark">
@@ -48,4 +48,11 @@ const App = props => {
   );
 };
 
-export default App;
+const mapStateToProps = (state) => {
+  // console.log("mapState: ", state);
+  return({
+    
+  })
+}
+
+export default connect(mapStateToProps)(App);
