@@ -5,15 +5,15 @@ import { useParams, useHistory } from 'react-router-dom';
 import { deleteMovie } from './../actions/movieActions';
 
 const Movie = (props) => {
-    // console.log("Movie-props: ", props);
     const { id } = useParams();
-    const { push } = useHistory();
+    const history = useHistory();
     const { movies } = props;
     const movie = movies.find(movie=>movie.id===Number(id));
 
-    const handleClick = () => {
+    const handleClick = (id) => {
         console.log("Movie-handleClick: fires");
-        props.dispatch(deleteMovie());
+        props.dispatch(deleteMovie(id));
+        history.push("/");
     }
     
     return(<div className="modal-page col">
