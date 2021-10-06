@@ -16,17 +16,10 @@ const reducer = (state = initialState, action) => {
             console.log("ADD_MOVIE fired"); //update not mutate
             return {
                 ...state,
-                // movies: [...movies]
                 id: action.payload.id,
-                movies: [...state.movies, action.payload
-                    // {
-                    //     id: state.movies.length + 1,
-                    //     title: movies.title.payload,
-                    //     director: movies.director.payload,
-                    //     metascore: movies.metascore.payload,
-                    //     genre: movies.genre.payload,
-                    //     description: movies.description.payload
-                    // }
+                movies: [
+                    ...state.movies, 
+                    action.payload
                 ]
             }
         default:

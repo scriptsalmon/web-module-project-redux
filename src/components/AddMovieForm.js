@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 
 const AddMovieForm = (props) => {
-    const { push } = useHistory();
+    const history = useHistory();
 
     const [movie, setMovie] = useState({
         title: "",
@@ -27,6 +27,7 @@ const AddMovieForm = (props) => {
         e.preventDefault();
         // props.dispatch(addMovie(movie));
         props.addMovie(movie);
+        history.push('/movies/');
     }
 
     const { title, director, genre, metascore, description } = movie;
