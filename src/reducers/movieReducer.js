@@ -13,18 +13,21 @@ const reducer = (state = initialState, action) => {
                 movies: state.movies.filter(item=>(action.payload !== item.id))
             }
         case ADD_MOVIE:
-            console.log("ADD_MOVIE fired")
+            console.log("ADD_MOVIE fired"); //update not mutate
             return {
                 ...state,
-                movies: [...movies]
-                // movies: [{
-                //     id: state.movies.length + 1,
-                //     title: movies.title.payload,
-                //     director: movies.director.payload,
-                //     metascore: movies.metascore.payload,
-                //     genre: movies.genre.payload,
-                //     description: movies.description.payload
-                //   }]
+                // movies: [...movies]
+                id: action.payload.id,
+                movies: [...state.movies, action.payload
+                    // {
+                    //     id: state.movies.length + 1,
+                    //     title: movies.title.payload,
+                    //     director: movies.director.payload,
+                    //     metascore: movies.metascore.payload,
+                    //     genre: movies.genre.payload,
+                    //     description: movies.description.payload
+                    // }
+                ]
             }
         default:
             return state;

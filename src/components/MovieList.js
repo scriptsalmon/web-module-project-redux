@@ -8,6 +8,7 @@ const MovieList = (props)=> {
     const { movies } = props;
     // const movies = [];
     // console.log("MovieList-props: ", props)
+    console.log(movies);
 
     return (
         <div className="col">
