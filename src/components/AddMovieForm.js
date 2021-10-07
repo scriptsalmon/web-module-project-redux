@@ -5,7 +5,8 @@ import { connect } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 
 const AddMovieForm = (props) => {
-    const history = useHistory();
+    const { addMovie } = props;
+    const { push } = useHistory();
 
     const [movie, setMovie] = useState({
         title: "",
@@ -21,21 +22,20 @@ const AddMovieForm = (props) => {
             [e.target.name]: e.target.value
         });
         console.log("AddMovieForm: handleChange:", movie)
-    }
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // props.dispatch(addMovie(movie));
-        props.addMovie(movie);
-        history.push('/movies/');
-    }
+        addMovie(movie);
+        push('/movies/');
+    };
 
     const { title, director, genre, metascore, description } = movie;
     return(<div className="col">
         <div className="modal-dialog">
             <div className="modal-content">
                 <form onSubmit={handleSubmit}>
-                    <div className="modal-header">						
+                    <div className="modal-header">
                         <h4 className="modal-title">Add Movie</h4>
                     </div>
 

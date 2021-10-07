@@ -11,17 +11,20 @@ const reducer = (state = initialState, action) => {
         case DELETE_MOVIE:
             return {
                 movies: state.movies.filter(item=>(action.payload !== item.id))
-            }
+            };
         case ADD_MOVIE:
-            console.log("ADD_MOVIE fired"); //update not mutate
+            const newMovie = {
+                ...action.payload,
+                id: Math.floor(Math.random() * 100)
+            };
             return {
                 ...state,
                 id: action.payload.id,
                 movies: [
                     ...state.movies, 
-                    action.payload
+                    newMovie
                 ]
-            }
+            };
         default:
             return state;
 

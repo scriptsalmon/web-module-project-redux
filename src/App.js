@@ -11,9 +11,9 @@ import MovieHeader from './components/MovieHeader';
 import AddMovieForm from './components/AddMovieForm';
 import FavoriteMovieList from './components/FavoriteMovieList';
 
-const App = props => {
+const App = () => {
   const displayFavorites = true;
-  console.log("App: ", props);
+
   return (
     <div>
       <nav className="navbar navbar-dark bg-dark">
@@ -23,7 +23,7 @@ const App = props => {
       <div className="container">
         <MovieHeader/>
         <div className="row ">
-          {displayFavorites && <FavoriteMovieList/>}
+          {displayFavorites && <FavoriteMovieList />}
         
           <Switch>
             <Route exact path="/movies/add">
@@ -48,11 +48,4 @@ const App = props => {
   );
 };
 
-const mapStateToProps = (state) => {
-  // console.log("mapState: ", state);
-  return({
-    
-  })
-}
-
-export default connect(mapStateToProps)(App);
+export default App;
