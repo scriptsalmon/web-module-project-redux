@@ -6,14 +6,15 @@ import { deleteMovie } from './../actions/movieActions';
 
 const Movie = (props) => {
     const { id } = useParams();
-    const history = useHistory();
-    const { movies } = props;
+    const { push } = useHistory();
+    const { movies, dispatch } = props;
+
     const movie = movies.find(movie=>movie.id===Number(id));
 
     const handleClick = (id) => {
         console.log("Movie-handleClick: fires");
-        props.dispatch(deleteMovie(id));
-        history.push("/");
+        dispatch(deleteMovie(id));
+        push("/movies");
     }
     
     return(<div className="modal-page col">

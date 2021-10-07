@@ -6,9 +6,7 @@ import MovieFooter from './MovieFooter';
 
 const MovieList = (props)=> {
     const { movies } = props;
-    // const movies = [];
-    // console.log("MovieList-props: ", props)
-    // console.log(movies);
+    // const movies = props.movies; also works
 
     return (
         <div className="col">
