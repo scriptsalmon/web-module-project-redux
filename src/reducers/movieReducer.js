@@ -15,7 +15,7 @@ const reducer = (state = initialState, action) => {
         case ADD_MOVIE:
             const newMovie = {
                 ...action.payload,
-                id: Math.floor(Math.random() * 100)
+                id: Date.now()
             };
             return {
                 ...state,

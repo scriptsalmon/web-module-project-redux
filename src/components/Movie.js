@@ -7,7 +7,7 @@ import { deleteMovie } from './../actions/movieActions';
 const Movie = (props) => {
     const { id } = useParams();
     const { push } = useHistory();
-    const { movies, dispatch } = props;
+    const { movies, dispatch, displayFavorites } = props;
 
     const movie = movies.find(movie=>movie.id===Number(id));
 
@@ -65,7 +65,8 @@ const Movie = (props) => {
 
 const mapStateToProps = (state) => {
     return ({
-        movies: state.movies
+        displayFavorites: state.favoritesReducer.displayFavorites,
+        movies: state.movieReducer.movies
     })
 }
 
